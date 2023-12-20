@@ -1,0 +1,12 @@
+# Usa la imagen base de OpenJDK 17
+FROM openjdk:17
+#Puerto que se utilizara para la comunicación
+EXPOSE 8090
+# Directorio de trabajo dentro del contenedor
+WORKDIR /app
+
+# Copia el JAR de tu aplicación al contenedor (asegúrate de que el JAR tenga el nombre correcto)
+COPY target/gateway-server-0.0.1-SNAPSHOT.jar gateway-server.jar
+
+# Comando para ejecutar la aplicación Spring Boot al iniciar el contenedor
+CMD ["java", "-jar", "gateway-server.jar"]
